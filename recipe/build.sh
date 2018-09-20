@@ -1,7 +1,5 @@
 #!/bin/bash
 
-sh build.sh
-
 ./configure --prefix=$PREFIX \
             --with-curl=$PREFIX \
             --with-libxml=$PREFIX \
