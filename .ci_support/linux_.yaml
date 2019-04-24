@@ -1,15 +1,19 @@
 c_compiler:
-- toolchain_c
+- gcc
+c_compiler_version:
+- '7'
 channel_sources:
 - conda-forge,defaults
 channel_targets:
 - conda-forge main
 curl:
-- '7.59'
+- '7.64'
 cxx_compiler:
-- toolchain_cxx
+- gxx
+cxx_compiler_version:
+- '7'
 docker_image:
-- condaforge/linux-anvil
+- condaforge/linux-anvil-comp7
 libxml2:
 - '2.9'
 pin_run_as_build:
