@@ -1,6 +1,6 @@
 {% set name = "modsecurity" %}
-{% set version = "3.0.3" %}
-{% set sha256 = "8aa1300105d8cc23315a5e54421192bc617a66246ad004bd89e67c232208d0f4" %}
+{% set version = "3.0.4" %}
+{% set sha256 = "b4231177dd80b4e076b228e57d498670113b69d445bab86db25f65346c24db22" %}
 
 package:
   name: {{ name|lower }}
@@ -11,7 +11,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 0
   skip: True  # [not linux]
 
 requirements:
