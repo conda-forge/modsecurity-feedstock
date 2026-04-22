@@ -11,12 +11,13 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 2
   skip: True  # [not linux]
 
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
     - autoconf
     - libtool
@@ -31,7 +32,7 @@ requirements:
     - curl
     - geoip
     - flex
-    - libxml2
+    - libxml2-devel
   run:
     - bison
     - pcre
@@ -39,7 +40,7 @@ requirements:
     - curl
     - geoip
     - flex
-    - libxml2
+    - libxml2-devel
 
 test:
   commands:
