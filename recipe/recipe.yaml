@@ -1,0 +1,69 @@
+schema_version: 1
+
+context:
+  name: modsecurity
+  version: "3.0.17"
+  sha256: f283b33d5c21130fd3a15c84a93a1abe12bd1949edaf44288b12af571b671a50
+
+package:
+  name: modsecurity
+  version: ${{ version }}
+
+source:
+  url: https://github.com/owasp-modsecurity/ModSecurity/releases/download/v${{ version }}/modsecurity-v${{ version }}.tar.gz
+  sha256: ${{ sha256 }}
+
+build:
+  number: 0
+  skip: not linux
+
+requirements:
+  build:
+    - ${{ compiler('c') }}
+    - ${{ compiler('cxx') }}
+    - ${{ stdlib('c') }}
+    - bison
+    - flex
+    - autoconf
+    - libtool
+    - automake
+    - make
+    - pkg-config
+    - git
+  host:
+    - pcre2
+    - yajl
+    - libcurl
+    - geoip
+    - libxml2-devel
+  run:
+    - pcre2
+    - yajl
+    - libcurl
+    - geoip
+    - libxml2
+
+tests:
+  - requirements:
+      run:
+        - pkg-config
+    script:
+      - pkg-config --print-errors --exact-version "$PKG_VERSION" modsecurity
+      - test -f "$PREFIX/include/modsecurity/modsecurity.h"
+      - test -f "$PREFIX/lib/libmodsecurity.so"
+      - test -f "$PREFIX/lib/libmodsecurity.a"
+
+about:
+  license: Apache-2.0
+  license_file: LICENSE.txt
+  summary: modsecurity is one component of the ModSecurity v3 project. The library codebase serves as an interface to ModSecurity Connectors taking in web traffic and applying traditional ModSecurity processing.
+  description: |
+    modsecurity is one component of the ModSecurity v3 project. The library codebase serves as an interface to ModSecurity Connectors taking in web traffic and applying traditional ModSecurity processing. In general, it provides the capability to load/interpret rules written in the ModSecurity SecRules format and apply them to HTTP content provided by your application via Connectors.
+  homepage: https://www.modsecurity.org/
+  repository: https://github.com/owasp-modsecurity/ModSecurity
+  documentation: https://github.com/owasp-modsecurity/ModSecurity/tree/v3/master/doc
+
+extra:
+  recipe-maintainers:
+    - GustavoKatel
+    - davysson

@@ -1,49 +1,30 @@
-About modsecurity
-=================
+About modsecurity-feedstock
+===========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/modsecurity-feedstock/blob/main/LICENSE.txt)
 
 Home: https://www.modsecurity.org/
 
 Package license: Apache-2.0
 
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/modsecurity-feedstock/blob/master/LICENSE.txt)
-
 Summary: modsecurity is one component of the ModSecurity v3 project. The library codebase serves as an interface to ModSecurity Connectors taking in web traffic and applying traditional ModSecurity processing.
 
-Development: https://github.com/SpiderLabs/ModSecurity
+Development: https://github.com/owasp-modsecurity/ModSecurity
 
-Documentation: https://github.com/SpiderLabs/ModSecurity/tree/v3/master/doc
+Documentation: https://github.com/owasp-modsecurity/ModSecurity/tree/v3/master/doc
 
 modsecurity is one component of the ModSecurity v3 project. The library codebase serves as an interface to ModSecurity Connectors taking in web traffic and applying traditional ModSecurity processing. In general, it provides the capability to load/interpret rules written in the ModSecurity SecRules format and apply them to HTTP content provided by your application via Connectors.
-
 
 Current build status
 ====================
 
 
-<table>
-    
-  <tr>
-    <td>Azure</td>
+<table><tr>
+    <td>GitHub Actions</td>
     <td>
-      <details>
-        <summary>
-          <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=3116&branchName=master">
-            <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/modsecurity-feedstock?branchName=master">
-          </a>
-        </summary>
-        <table>
-          <thead><tr><th>Variant</th><th>Status</th></tr></thead>
-          <tbody><tr>
-              <td>linux_64</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=3116&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/modsecurity-feedstock?branchName=master&jobName=linux&configuration=linux_64_" alt="variant">
-                </a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </details>
+      <a href="https://github.com/conda-forge/modsecurity-feedstock/actions/workflows/conda-build.yml">
+        <img src="https://github.com/conda-forge/modsecurity-feedstock/actions/workflows/conda-build.yml/badge.svg?event=push&branch=main">
+      </a>
     </td>
   </tr>
 </table>
@@ -62,25 +43,97 @@ Installing `modsecurity` from the `conda-forge` channel can be achieved by addin
 
 ```
 conda config --add channels conda-forge
+conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `modsecurity` can be installed with:
+How to use
+----------
+
+<details>
+<summary>With conda</summary>
 
 ```
 conda install modsecurity
 ```
 
-It is possible to list all of the versions of `modsecurity` available on your platform with:
+</details>
+
+<details>
+<summary>With mamba</summary>
+
+```
+mamba install modsecurity
+```
+
+</details>
+
+<details>
+<summary>With pixi</summary>
+
+```
+# for adding to your local project
+pixi add modsecurity
+# for installing globally
+pixi global install modsecurity
+```
+
+</details>
+
+Search package versions
+-----------------------
+
+It is possible to list all of the versions of `modsecurity` available on your platform:
+
+<details>
+<summary>With conda</summary>
 
 ```
 conda search modsecurity --channel conda-forge
 ```
 
+</details>
+
+<details>
+<summary>With mamba</summary>
+
+```
+mamba search modsecurity --channel conda-forge
+```
+
+</details>
+
+<details>
+<summary>With pixi</summary>
+
+```
+pixi search modsecurity --channel conda-forge
+```
+
+</details>
+
+<details>
+<summary>With mamba repoquery, which may provide more information</summary>
+
+```
+# Search all versions available on your platform:
+mamba repoquery search modsecurity --channel conda-forge
+
+# List packages depending on `modsecurity`:
+mamba repoquery whoneeds modsecurity --channel conda-forge
+
+# List dependencies of `modsecurity`:
+mamba repoquery depends modsecurity --channel conda-forge
+```
+
+</details>
+
+
 
 About conda-forge
 =================
 
-[![Powered by NumFOCUS](https://img.shields.io/badge/powered%20by-NumFOCUS-orange.svg?style=flat&colorA=E1523D&colorB=007D8A)](http://numfocus.org)
+[![Powered by
+NumFOCUS](https://img.shields.io/badge/powered%20by-NumFOCUS-orange.svg?style=flat&colorA=E1523D&colorB=007D8A)](https://numfocus.org)
 
 conda-forge is a community-led conda channel of installable packages.
 In order to provide high-quality builds, the process has been automated into the
@@ -90,17 +143,17 @@ for each of the installable packages. Such a repository is known as a *feedstock
 A feedstock is made up of a conda recipe (the instructions on what and how to build
 the package) and the necessary configurations for automatic building using freely
 available continuous integration services. Thanks to the awesome service provided by
-[CircleCI](https://circleci.com/), [AppVeyor](https://www.appveyor.com/)
-and [TravisCI](https://travis-ci.com/) it is possible to build and upload installable
-packages to the [conda-forge](https://anaconda.org/conda-forge)
-[Anaconda-Cloud](https://anaconda.org/) channel for Linux, Windows and OSX respectively.
+[Azure](https://azure.microsoft.com/en-us/services/devops/) and [GitHub](https://github.com/)
+it is possible to build and upload installable packages to the
+[conda-forge](https://anaconda.org/conda-forge) [anaconda.org](https://anaconda.org/)
+channel for Linux, Windows and OSX respectively.
 
-To manage the continuous integration and simplify feedstock maintenance
+To manage the continuous integration and simplify feedstock maintenance,
 [conda-smithy](https://github.com/conda-forge/conda-smithy) has been developed.
 Using the ``conda-forge.yml`` within this repository, it is possible to re-render all of
 this feedstock's supporting files (e.g. the CI configuration files) with ``conda smithy rerender``.
 
-For more information please check the [conda-forge documentation](https://conda-forge.org/docs/).
+For more information, please check the [conda-forge documentation](https://conda-forge.org/docs/).
 
 Terminology
 ===========
@@ -127,7 +180,7 @@ merged, the recipe will be re-built and uploaded automatically to the
 everybody to install and use from the `conda-forge` channel.
 Note that all branches in the conda-forge/modsecurity-feedstock are
 immediately built and any created packages are uploaded, so PRs should be based
-on branches in forks and branches in the main repository should only be used to
+on branches in forks, and branches in the main repository should only be used to
 build distinct package versions.
 
 In order to produce a uniquely identifiable distribution:
