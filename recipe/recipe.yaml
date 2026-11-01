@@ -35,7 +35,7 @@ requirements:
     - yajl
     - libcurl
     - geoip
-    - libxml2
+    - libxml2-devel
   run:
     - pcre2
     - yajl
